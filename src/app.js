@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { Layout } from 'antd';
+import React from 'react';
 import './app.css';
-import { getData } from "./api";
+import Info from './Info';
+import Home from './Home';
+
+import {
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom"
 
 export default function App() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    getData().then(setData);
-  }, []);
+  const history = window.history.state;
 
   return (
-    <Layout>
-      <pre>
-        { JSON.stringify(data, null, 2) }
-      </pre>
-    </Layout>
+    <div className="app">
+      <Switch>
+        <Route history={history} path='/info/:id' component={Info} />
+        <Route history={history} path='/home' component={Home} />
+        <Redirect from='/' to='/home'/>
+      </Switch>
+    </div>
   );
 }
