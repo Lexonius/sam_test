@@ -1,24 +1,18 @@
-import React from 'react';
-import './app.css';
-import Info from './Info';
-import Home from './Home';
+import React from "react";
+import "./styles/app.css";
+import Info from "./Info";
+import Home from "./Home";
 
-import {
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom"
+import { Route, Switch, Redirect } from "react-router-dom";
 
-export default function App() {
-  const history = window.history.state;
+const App = () => (
+  <div className="app">
+    <Switch>
+      <Route path="/info/:id" component={Info} />
+      <Route path="/" component={Home} />
+      <Redirect from="/" to="/home" />
+    </Switch>
+  </div>
+);
 
-  return (
-    <div className="app">
-      <Switch>
-        <Route history={history} path='/info/:id' component={Info} />
-        <Route history={history} path='/home' component={Home} />
-        <Redirect from='/' to='/home'/>
-      </Switch>
-    </div>
-  );
-}
+export default App;
