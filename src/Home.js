@@ -50,8 +50,6 @@ const Home = () => {
     setFilteredDataDispatch(filteredData);
   };
 
-  console.log(filterData, isFiltered);
-
   const formationListData = () => {
     let arr;
     if (isFiltered) {
@@ -72,8 +70,6 @@ const Home = () => {
 
   return (
     <div className="wrapper content_block">
-      {/*TODO remove console.log */}
-      {console.log(data)}
       <div className="content_block_input">
         <Input placeholder="Введите название" onChange={filterName} />
       </div>

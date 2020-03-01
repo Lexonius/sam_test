@@ -2,8 +2,7 @@ import { createStore } from "redux";
 
 const INITIAL_STATE = {
   data: [],
-  filterData: [],
-  sortdata: []
+  filterData: []
 };
 
 function rootReducer(state = INITIAL_STATE, action) {
@@ -12,8 +11,6 @@ function rootReducer(state = INITIAL_STATE, action) {
       return { ...state, data: action.payload };
     case "SET_FILTER_DATA":
       return { ...state, filterData: action.payload };
-    case "SET_SORT_DATA":
-      return { ...state, sortdata: action.payload };
     default:
       return state;
   }
